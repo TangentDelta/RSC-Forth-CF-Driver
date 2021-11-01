@@ -10,10 +10,10 @@ CFBASE 7 + CONSTANT CFREG7
 ;
 
 : CFWAIT ( --- )
-BEGIN
-  CFREG7 C@ 80 AND
-  0=
-UNTIL
+  BEGIN
+    CFREG7 C@ 80 AND
+    0=
+  UNTIL
 ;
 
 : CFERR ( --- )
