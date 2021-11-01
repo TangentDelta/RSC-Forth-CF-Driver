@@ -10,16 +10,15 @@ Provides a user mass storage driver for RSC-Forth that allows it to access a com
 * `forth_cf.f` - The main driver
 * `cfinfo.f` - Compact Flash card information
 * `tests.f` - Misc. testing words
-`
 
 ## Hardware Requirements
 
 * A computer capable of running Rockwell RSC-Forth
 * A compact flash card mapped into memory somewhere
 
-The development work on this driver was done primarily using the Glitch Works R65X1Q single-board computer available here: [https://www.tindie.com/products/glitchwrks/glitch-works-r6501qr6511q-single-board-computer/]
+The development work on this driver was done primarily using the Glitch Works R65X1Q single-board computer available here: <https://www.tindie.com/products/glitchwrks/glitch-works-r6501qr6511q-single-board-computer/>
 
-The compact flash adapter used is a stack-on expansion board also provided by Glitch Works. It is available here: [https://www.tindie.com/products/glitchwrks/glitch-works-compactflash-adapter-for-glitchbus/]
+The compact flash adapter used is a stack-on expansion board also provided by Glitch Works. It is available here: <https://www.tindie.com/products/glitchwrks/glitch-works-compactflash-adapter-for-glitchbus/>
 
 ## How To Install
 
@@ -30,7 +29,7 @@ The compact flash adapter used is a stack-on expansion board also provided by Gl
 
 Please Note: **This is not a permanent install.** Whenever RSC-Forth is cold started, you will need to install the driver again.
 
-At this point the driver should be functional. Chapter 12 of the RSC-Forth user manual provides instructions on using mass storage for reading/writing screens, large data storage, etc. The manual can be found here: [http://www.smallestplcoftheworld.org/RSC-FORTH_User%27s_Manual.pdf]
+At this point the driver should be functional. Chapter 12 of the RSC-Forth user manual provides instructions on using mass storage for reading/writing screens, large data storage, etc. The manual can be found here: <http://www.smallestplcoftheworld.org/RSC-FORTH_User%27s_Manual.pdf>
 
 ## Included Words
 
