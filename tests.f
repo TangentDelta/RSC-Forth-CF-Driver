@@ -1,0 +1,15 @@
+: CFTEST
+EC CFBASE 7 + C!
+0 BEGIN CR CF@ . 1+
+CFBASE 7 + C@ 8 AND 0=
+UNTIL
+CR . ."  BYTES READ" CR
+;
+
+: TEST
+IF
+  ." READ BLOCK " . ."  TO ADDRESS " . CR
+ELSE
+  ." WRITE BLOCK " . ."  TO ADDRESS " . CR
+THEN
+;
