@@ -24,18 +24,78 @@ The compact flash adapter used is a stack-on expansion board also provided by Gl
 
 1. Modify the `IOPAGE` constant in `forth_cf.f` to match your hardware setup. **For a GW-R65X1Q-SBC, the default value does not need to be modified.**
 2. Set up your terminal emulator software to provide around 25ms character delay and 100ms new line delay. **This may need to be tweaked depending on the board**
-3. Paste the modified `forth_cf.f` file into the Forth prompt. The statement at the end of the file automatically activates the driver.
-4. Run the word `CFINIT` to initialize the CF card
+3. Paste the modified `forth_cf.f` file into the Forth prompt. The statement at the end of the file automatically activates the driver and initializes the CF card.
 
 Please Note: **This is not a permanent install.** Whenever RSC-Forth is cold started, you will need to install the driver again.
 
 At this point the driver should be functional. Chapter 12 of the RSC-Forth user manual provides instructions on using mass storage for reading/writing screens, large data storage, etc. The manual can be found here: <http://www.smallestplcoftheworld.org/RSC-FORTH_User%27s_Manual.pdf>
 
+## Getting Started
+
+You should probably start by wiping some fresh screens in order to test the CF card. Here is an example WIPE word:
+
+```forth
+HEX
+: WIPE ( BLOCK-NO --- )
+  BLOCK 400 BLANKS UPDATE FLUSH
+;
+```
+
+To use this word, provide it with a screen number to completely wipe (fill with space characters). `10 WIPE` will wipe out screen 10 for use.
+
+The contents of a screen can be listed with the `LIST` word.
+
+```text
+10 LIST<cr>
+SCR # 16 
+  0 
+  1 
+  2 
+  3 
+  4 
+  5 
+  6 
+  7 
+  8 
+  9 
+ 10 
+ 11 
+ 12 
+ 13 
+ 14 
+ 15 
+OK
+```
+
+RSC-Forth includes a very simple line editor, `>LINE`, that uses the last `LIST`ed screen. Provide it with the line number to edit on top of the stack and then type out the text that you would like to place on that line.
+
+```text
+3 >LINE THIS IS LINE 3!<cr>
+OK
+10 LIST<cr>
+SCR # 16 
+  0 
+  1 
+  2 
+  3 THIS IS LINE 3!
+  4 
+  5 
+  6 
+  7 
+  8 
+  9 
+ 10 
+ 11 
+ 12 
+ 13 
+ 14 
+ 15 
+OK
+```
+
+This should be enough to test the CF card.
+
 ## Included Words
-
-### BYTESWAP ( START-ADDR --- )
-
-Swaps the byte at `START-ADDR` with the byte at `START-ADDR + 1`.
 
 ### CFWAIT ( --- )
 
