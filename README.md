@@ -23,7 +23,7 @@ The compact flash adapter used is a stack-on expansion board also provided by Gl
 ## How To Install
 
 1. Modify the `IOPAGE` constant in `forth_cf.f` to match your hardware setup. **For a GW-R65X1Q-SBC, the default value does not need to be modified.**
-2. Set up your terminal emulator software to provide around 25ms character delay and 100ms new line delay. **This may need to be tweaked depending on the board**
+2. Set up your terminal emulator software to provide around 25ms character delay and 250ms new line delay. **This may need to be tweaked depending on the board**
 3. Paste the modified `forth_cf.f` file into the Forth prompt. The statement at the end of the file automatically activates the driver and initializes the CF card.
 
 Please Note: **This is not a permanent install.** Whenever RSC-Forth is cold started, you will need to install the driver again.
